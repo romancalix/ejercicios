@@ -8,13 +8,17 @@ namespace InterviewTest.Strategies
  *   la que el siguiente siempre es la suma de los dos anteriores.
  *   0, 1, 1, 2, 3, 5, 8, 13...
  */
-    public class Fibonacci : IStrategy
+    public class Fibonacci : IStrategy<int[]>
     {
         private int _number;
-        public Fibonacci()
+        public Fibonacci(int number)
         {
-            this._number = 8;
+            this._number = number;
+            this.Response = new int[number];
         }
+
+        public int[] Response { get; private set; }
+
         public void Execute()
         {
             int anterior1 = 0;
@@ -40,6 +44,11 @@ namespace InterviewTest.Strategies
             for (int i = 0; i < this._number; i++)
             {
                 Console.Write(fibo[i]);
+            }
+
+            for (int i = 0; i < fibo.Length; i++) 
+            {
+                Response[i] = fibo[i];
             }
         }
     }

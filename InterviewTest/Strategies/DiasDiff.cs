@@ -15,22 +15,26 @@ namespace InterviewTest.Strategies
  * - Si una de las dos cadenas de texto no representa una fecha correcta se
  *   lanzará una excepción.
  */
-    public class DiasDiff : IStrategy
+    public class DiasDiff : IStrategy<int>
     {
         private string _date1;
         private string _date2;
 
-        public DiasDiff()
+        public DiasDiff(string date1, string date2)
         {
-            this._date1 = "12/05/2020";
-            this._date2 = "22/05/2020";
+            this._date1 = date1;
+            this._date2 = date2;
         }
+
+        public int Response { get; private set; }
+
         public void Execute()
         {
             var date1 = DateTime.ParseExact(this._date1, "dd/MM/yyyy", null);
             var date2 = DateTime.ParseExact(this._date2, "dd/MM/yyyy", null);
             var diff = (date2 - date1).Duration().Days;
             Console.WriteLine("La diferencia en días es: " + diff);
+            this.Response = diff;
         }
     }
 }

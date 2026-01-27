@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace InterviewTest
 {
-    public interface IStrategy
+    public interface IStrategy<T>
     {
         void Execute();
+        public T Response { get; }
     }
 }
