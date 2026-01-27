@@ -14,27 +14,37 @@ namespace InterviewTest.Strategies
      * - Múltiplos de 5 por la palabra "buzz".
      * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
      */
-    public class FizzBuzz : IStrategy
+    public class FizzBuzz : IStrategy<List<string>>
     {
+        public List<string> Response { get; private set; } = new List<string>();
+        private readonly int _cantidad;
+        public FizzBuzz(int cantidad)
+        {
+            _cantidad = cantidad;
+        }
         public void Execute()
         {
-            for (int i = 1; i <= 100; i++)
+            for (int i = 1; i <= this._cantidad; i++)
             {
                 if (i % 3 == 0 && i % 5 == 0)
                 {
                     Console.WriteLine("fizzbuzz " + i);
+                    this.Response.Add("fizzbuzz");
                 }
                 else if (i % 3 == 0)
                 {
                     Console.WriteLine("fizz " + i);
+                    this.Response.Add("fizz");
                 }
                 else if (i % 5 == 0)
                 {
                     Console.WriteLine("buzz " + i);
+                    this.Response.Add("buzz");
                 }
                 else
                 {
                     Console.WriteLine(i);
+                    this.Response.Add(i.ToString());
                 }
             }
         }

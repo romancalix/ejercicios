@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 namespace InterviewTest
 {
-    public class Context
+    public class Context <T>
     {
-        private readonly IStrategy _strategy;
-        public Context(IStrategy strategy)
+        private readonly IStrategy<T> _strategy;
+        
+        public Context(IStrategy<T> strategy)
         {
             _strategy = strategy;
         }
         public void ExecuteStrategy()
         {
             _strategy.Execute();
+        }
+
+        public T GetResponse()
+        {
+            return _strategy.Response;
         }
     }
 }

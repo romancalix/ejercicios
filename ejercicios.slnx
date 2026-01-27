@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="InterviewTest/InterviewTest.csproj" />
+  <Project Path="TestManager.Test/TestManager.Test.csproj" Id="ee8a2a56-ff2d-4872-a6e2-6a7672cd8a60" />
 </Solution>
