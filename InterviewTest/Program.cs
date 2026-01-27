@@ -6,6 +6,7 @@ Console.WriteLine("Hello, World!");
 
 
 //var  strategy = new FizzBuzz();
-var strategy = new Anagrama();
+//var strategy = new Anagrama();
+var strategy = new Fibonacci();
 var context = new Context(strategy);
 context.ExecuteStrategy();
