@@ -20,19 +20,20 @@ namespace TestManager.Test
         [InlineData(new string[] { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8" }, 8)]
         [InlineData(new string[] { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz" }, 9)]
         [InlineData(new string[] { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz" }, 10)]
+        [InlineData(new string[] { "1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz" }, 15)]
         public void FizzTest(string[] expectedArray,int cantidad) 
         {
             //arrange
-            List<string> expected = new List<string>(expectedArray);
-            IStrategy<List<string>> strategy = new InterviewTest.Strategies.FizzBuzz(cantidad);
-            var context = new Context<List<string>>(strategy);
+            //string[] expected = new string[expectedArray];
+            IStrategy<string[]> strategy = new InterviewTest.Strategies.FizzBuzz(cantidad);
+            var context = new Context<string[]>(strategy);
 
             //act
             context.ExecuteStrategy();
-            List<string> response = context.GetResponse();
+            string[] response = context.GetResponse();
 
             //assert
-            Assert.Equal(expected, response);
+            Assert.Equal(expectedArray, response);
         }
     }
 }
