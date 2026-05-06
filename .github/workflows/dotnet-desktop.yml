@@ -1,0 +1,29 @@
+
+
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ "main" ]
+  
+jobs:
+
+  build:
+
+    #strategy:
+    #  matrix:
+    #    configuration: [Debug, Release]
+
+    runs-on: windows-latest  # For a list of available runner types, refer to
+                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    steps:
+      - name: print start
+        run: echo "action started"
+
+    #env:
+      #Solution_Name: ejercicios                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      #Test_Project_Path: TestManager.Test                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+      #Wap_Project_Directory: InterviewTest    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      #Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+
+    
