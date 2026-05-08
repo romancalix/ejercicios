@@ -28,3 +28,5 @@ jobs:
     steps:
       - name: print start
         run: echo "action started"
+      - name: Checkout code
+        uses: actions/checkout@v3
